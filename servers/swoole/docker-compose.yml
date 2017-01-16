@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  benchmarks-swoole:
+    container_name: benchmarks-swoole
+    build:
+      context: ../../
+      dockerfile: ./servers/swoole/Dockerfile
+    ports:
+      - 127.0.0.1:80:9501
+    command: php /var/www/html/index.php

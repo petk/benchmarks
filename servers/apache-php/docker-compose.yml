@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  benchmarks-apache-php:
+    container_name: benchmarks-apache-php
+    build:
+      context: ../../
+      dockerfile: ./servers/apache-php/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ../../apps/php-app:/var/www/html
