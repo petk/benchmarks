@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  benchmarks-nginx-php-uds:
+    container_name: benchmarks-nginx-php-uds
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ../../apps/php-app/:/var/www/html

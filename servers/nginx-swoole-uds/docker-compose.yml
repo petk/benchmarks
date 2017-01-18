@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  benchmarks-nginx-swoole:
+    container_name: benchmarks-nginx-swoole
+    build:
+      context: ../../
+      dockerfile: ./servers/nginx-swoole/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ../../apps/swoole-app/:/var/www/html
