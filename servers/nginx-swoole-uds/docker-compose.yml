@@ -1,11 +1,11 @@
 version: '2.1'
 
 services:
-  benchmarks-nginx-swoole:
-    container_name: benchmarks-nginx-swoole
+  benchmarks-nginx-swoole-uds:
+    container_name: benchmarks-nginx-swoole-uds
     build:
       context: ../../
-      dockerfile: ./servers/nginx-swoole/Dockerfile
+      dockerfile: ./servers/nginx-swoole-uds/Dockerfile
     ports:
       - 80:80
     volumes:

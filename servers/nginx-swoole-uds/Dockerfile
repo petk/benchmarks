@@ -17,7 +17,7 @@ RUN pecl install swoole \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
-COPY ./servers/nginx-swoole/etc /etc
+COPY ./servers/nginx-swoole-uds/etc /etc
 COPY ./apps/swoole-app /var/www/html
 
 RUN mkdir /run/php && chown -R www-data /run/php
