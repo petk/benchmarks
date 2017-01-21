@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3.0'
 
 services:
   benchmarks-nginx-swoole:
@@ -10,3 +10,9 @@ services:
       - 80:80
     volumes:
       - ../../apps/swoole-app/:/var/www/html
+    networks:
+      - benchmarks
+
+networks:
+  benchmarks:
+    driver: bridge

@@ -1,15 +1,15 @@
 version: '3.0'
 
 services:
-  benchmarks-apache-php:
-    container_name: benchmarks-apache-php
+  benchmarks-apache:
+    container_name: benchmarks-apache
     build:
       context: ../../
-      dockerfile: ./servers/apache-php/Dockerfile
+      dockerfile: ./servers/apache/Dockerfile
     ports:
       - 80:80
     volumes:
-      - ../../apps/php-app:/var/www/html
+      - ../../apps/static:/usr/local/apache2/htdocs
     networks:
       - benchmarks
 

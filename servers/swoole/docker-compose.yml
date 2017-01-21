@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3.0'
 
 services:
   benchmarks-swoole:
@@ -9,3 +9,9 @@ services:
     ports:
       - 127.0.0.1:80:9501
     command: php /var/www/html/index.php
+    networks:
+      - benchmarks
+
+networks:
+  benchmarks:
+    driver: bridge

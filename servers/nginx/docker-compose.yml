@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3.0'
 
 services:
   benchmarks-nginx:
@@ -7,3 +7,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - 80:80
+    volumes:
+      - ../../apps/static:/usr/share/nginx/html
+    networks:
+      - benchmarks
+
+networks:
+  benchmarks:
+    driver: bridge

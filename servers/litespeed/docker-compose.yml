@@ -1,0 +1,19 @@
+version: '3.0'
+
+services:
+  benchmarks-litespeed:
+    build:
+      context: ../../
+      dockerfile: ./servers/litespeed/Dockerfile
+    container_name: benchmarks-litespeed
+    volumes:
+      - ../../apps/static:/usr/local/lsws/Example/html
+    ports:
+      - 7080:7080
+      - 80:8088
+    networks:
+      - benchmarks
+
+networks:
+  benchmarks:
+    driver: bridge
