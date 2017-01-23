@@ -41,7 +41,10 @@ server {
         # With php5-cgi alone:
         #fastcgi_pass 127.0.0.1:9000;
         # With php5-fpm:
-        fastcgi_pass unix:/var/run/php/php-fpm.sock;
+        fastcgi_pass unix:/run/php/php-fpm.sock;
+        fastcgi_intercept_errors off;
+        fastcgi_buffer_size 16k;
+        fastcgi_buffers 4 16k;
     }
 
     # deny access to .htaccess files, if Apache's document root
@@ -50,4 +53,6 @@ server {
     #location ~ /\.ht {
     #    deny all;
     #}
+
+    access_log off;
 }

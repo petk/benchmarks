@@ -28,14 +28,39 @@ ab -c 200 -n 200000 -k -r http://localhost/
 | Nginx + Swoole (TCP/IP) socket  | 12225.28    | 10430.24    | 10443.99    |         |
 | Nginx + Swoole (UNIX Socket)    | 13522.05    | 14737.56    | 16314.50    |         |
 
+
+| Application                      | Benchmark 1 | Benchmark 2 | Benchmark 3 | Average |
+| Laravel @ Nginx PHP UDS          | 16895.38    | 16024.59    | 14744.19    |         |
+| Symfony @ Nginx PHP UDS          | 17137.06    | 14449.74    | 17284.18    |         |
+
 ## Disclaimer
+
+Above benchmarks have been run on Intel® Core™ i7-2670QM CPU @ 2.20GHz × 8 with
+16GB RAM.
 
 The following benchmarks are intended to provide an overview how different setups
 behave and to learn how to optimize certain technology for performance.
 
 Running the benchmarks on different hardware also gets different results. Better
-workstation/server might have different results because of CPU and network, but
-the relative comparison shouldn't be much different from one hardware to another.
+workstation/server have different results because of better CPU, network, and other
+hardware, but the relative comparison shouldn't be different from one hardware to
+another.
+
+Some setups might run into issues on Atom processors due to lacky processor
+support.
+
+## Installation
+
+To run a particular test you need [Docker](https://docs.docker.com/engine/)
+and [Docker Compose](https://docs.docker.com/compose/).
+
+For example, to run Apache test:
+
+```bash
+git clone git://github.com/peterkokot/benchmarks
+cd benchmarks
+./run.sh apache
+```
 
 ## License
 

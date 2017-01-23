@@ -6,6 +6,7 @@ cat <<END
 Custom helper commands for managing the benchmarks
 Usage: run.sh COMMAND [arg...]
 Commands:'
+    init              Install applications
     apache            Runs Apache static file benchmark
     nginx             Runs Nginx static file benchmark
     apache-php        Runs Apache with PHP-CGI benchmark
@@ -22,7 +23,16 @@ END
 # If arguments are passed, for example ./run.sh nginx
 if [ $# -gt 0 ];then
 
-    if [ "$1" == "apache" ]; then
+    if [ "$1" == "init" ]; then
+        shift 1
+        cd apps/symfony
+        composer install
+        composer dump-autoload --optimize
+        cd ../laravel
+        composer install
+        composer dump-autoload --optimize
+
+    elif [ "$1" == "apache" ]; then
         shift 1
         docker-compose -f servers/apache/docker-compose.yml up -d --build --force-recreate
         ab -c 200 -n 200000 -k -r http://localhost/
@@ -67,7 +77,7 @@ if [ $# -gt 0 ];then
     elif [ "$1" == "nginx-php-uds" ]; then
         shift 1
         docker-compose -f servers/nginx-php-uds/docker-compose.yml up -d --build --force-recreate
-        ab -c 200 -n 200000 -k -r http://localhost/
+        ab -c 200 -n 200000 -k -r http://localhost:8080/
         docker-compose -f servers/nginx-php-uds/docker-compose.yml down
 
     elif [ "$1" == "swoole" ]; then
