@@ -29,9 +29,10 @@ ab -c 200 -n 200000 -k -r http://localhost/
 | Nginx + Swoole (UNIX Socket)    | 13522.05    | 14737.56    | 16314.50    |         |
 
 
-| Application                      | Benchmark 1 | Benchmark 2 | Benchmark 3 | Average |
-| Laravel @ Nginx PHP UDS          | 16895.38    | 16024.59    | 14744.19    |         |
-| Symfony @ Nginx PHP UDS          | 17137.06    | 14449.74    | 17284.18    |         |
+| Application                     | Benchmark 1 | Benchmark 2 | Benchmark 3 | Average |
+|---------------------------------|-------------|-------------|-------------|---------|
+| Laravel @ Nginx PHP UDS         | 16895.38    | 16024.59    | 14744.19    |         |
+| Symfony @ Nginx PHP UDS         | 17137.06    | 14449.74    | 17284.18    |         |
 
 ## Disclaimer
 
