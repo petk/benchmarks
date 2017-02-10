@@ -1,0 +1,18 @@
+version: '3.0'
+
+services:
+  benchmarks-php-pm:
+    container_name: benchmarks-php-pm
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ../../apps/symfony/:/var/www/symfony
+    networks:
+      - benchmarks
+
+networks:
+  benchmarks:
+    driver: bridge
