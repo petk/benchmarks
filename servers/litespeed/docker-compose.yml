@@ -1,11 +1,12 @@
-version: '3.0'
+version: '3.1'
 
 services:
-  benchmarks-litespeed:
+  app:
+    container_name: benchmarks-app
+    image: petk/benchmarks:litespeed
     build:
-      context: ../../
-      dockerfile: ./servers/litespeed/Dockerfile
-    container_name: benchmarks-litespeed
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ../../apps/static:/usr/local/lsws/Example/html
     ports:

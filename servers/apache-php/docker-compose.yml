@@ -1,11 +1,11 @@
-version: '3.0'
+version: '3.1'
 
 services:
-  benchmarks-apache-php:
-    container_name: benchmarks-apache-php
+  app:
+    container_name: benchmarks-app
     build:
-      context: ../../
-      dockerfile: ./servers/apache-php/Dockerfile
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 80:80
     volumes:

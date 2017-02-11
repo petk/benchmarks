@@ -1,6 +1,6 @@
 FROM php:7.1-cli
 
-MAINTAINER Peter Kokot <peterkokot@gmail.com>
+MAINTAINER Peter Kokot
 
 RUN pecl install swoole \
     && echo 'extension=swoole.so' >> /usr/local/etc/php/php.ini \
@@ -15,11 +15,10 @@ RUN pecl install swoole \
     && apt-get -y install openssl libssl-dev -t jessie-backports --no-install-recommends \
     && apt-get -y install nginx \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log
+    && ln -sf /dev/stderr /var/log/nginx/error.log \
+    && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
+    && mkdir /run/php && chown -R www-data /run/php
 
-COPY ./servers/nginx-swoole/etc /etc
-COPY ./apps/swoole-app /var/www/html
-
-RUN mkdir /run/php && chown -R www-data /run/php
+COPY etc /etc
 
 CMD ["/usr/bin/supervisord"]

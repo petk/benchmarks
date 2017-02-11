@@ -1,11 +1,12 @@
-version: '3.0'
+version: '3.1'
 
 services:
-  benchmarks-nginx-swoole:
-    container_name: benchmarks-nginx-swoole
+  app:
+    container_name: benchmarks-app
+    image: petk/benchmarks:nginx-swoole
     build:
-      context: ../../
-      dockerfile: ./servers/nginx-swoole/Dockerfile
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 80:80
     volumes:

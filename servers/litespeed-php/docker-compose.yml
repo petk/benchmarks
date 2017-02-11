@@ -1,11 +1,12 @@
-version: '3.0'
+version: '3.1'
 
 services:
-  benchmarks-litespeed-php:
+  app:
+    container_name: benchmarks-app
+    image: petk/benchmarks:litespeed-php
     build:
-      context: ../../
-      dockerfile: ./servers/litespeed-php/Dockerfile
-    container_name: benchmarks-litespeed-php
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ../../apps/php-app:/usr/local/lsws/Example/html
     ports:

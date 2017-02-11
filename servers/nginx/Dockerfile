@@ -1,5 +1,5 @@
 FROM nginx:stable
 
-COPY etc /etc
+MAINTAINER Peter Kokot
 
-EXPOSE 80
+COPY etc /etc

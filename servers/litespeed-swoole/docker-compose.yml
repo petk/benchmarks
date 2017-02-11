@@ -1,11 +1,12 @@
-version: '3.0'
+version: '3.1'
 
 services:
-  benchmarks-litespeed-swoole:
+  app:
+    container_name: benchmarks-app
+    image: petk/benchmarks:litespeed-swoole
     build:
-      context: ../../
-      dockerfile: ./servers/litespeed-swoole/Dockerfile
-    container_name: benchmarks-litespeed-swoole
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ../../apps/swoole-app:/usr/local/lsws/Example/html
     ports:

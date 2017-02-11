@@ -1,0 +1,6 @@
+!/apps/magento1
+/apps/magento1/*
+!apps/magento1/.gitkeep
+!/results
+/results/*
+!results/.gitkeep

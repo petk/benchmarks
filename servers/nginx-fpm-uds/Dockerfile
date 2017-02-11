@@ -1,6 +1,6 @@
 FROM php:7.1-fpm
 
-MAINTAINER Peter Kokot <peterkokot@gmail.com>
+MAINTAINER Peter Kokot
 
 RUN apt-get update && apt-get -y install curl ca-certificates supervisor --no-install-recommends \
     && echo 'deb http://ftp.debian.org/debian jessie-backports main' >> /etc/apt/sources.list \
@@ -12,13 +12,15 @@ RUN apt-get update && apt-get -y install curl ca-certificates supervisor --no-in
     && apt-get update \
     && apt-get -y install openssl libssl-dev -t jessie-backports --no-install-recommends \
     && apt-get -y install nginx \
+    # Additional PHP extensions: soap, mcrypt, gd, pdo_mysql
+    && apt-get -y install libxml2-dev libmcrypt-dev libpng-dev libjpeg-dev --no-install-recommends \
+    && docker-php-ext-install soap mcrypt gd pdo_mysql \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
-    && mkdir /run/php
+    && mkdir /run/php \
+    && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
 COPY etc /etc
 COPY usr /usr
-
-EXPOSE 80:80
 
 CMD ["/usr/bin/supervisord"]

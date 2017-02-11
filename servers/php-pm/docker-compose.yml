@@ -1,8 +1,9 @@
-version: '3.0'
+version: '3.1'
 
 services:
-  benchmarks-php-pm:
-    container_name: benchmarks-php-pm
+  app:
+    container_name: benchmarks-app
+    image: petk/benchmarks:php-pm
     build:
       context: .
       dockerfile: Dockerfile

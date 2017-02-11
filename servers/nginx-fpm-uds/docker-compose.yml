@@ -3,16 +3,20 @@ version: '3.1'
 services:
   app:
     container_name: benchmarks-app
-    image: petk/benchmarks:nginx-swoole-uds
+    image: petk/benchmarks:nginx-fpm-uds
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - 80:80
       - 8080:8080
+      - 8081:8081
+      - 8082:8082
     volumes:
-      - ../../apps/swoole-app/:/var/www/html
+      - ../../apps/php-app/:/var/www/html
+      - ../../apps/laravel/:/var/www/laravel
       - ../../apps/symfony/:/var/www/symfony
+      - ../../apps/magento1/:/var/www/magento1
     networks:
       - benchmarks
 
