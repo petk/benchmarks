@@ -3,14 +3,14 @@ version: '3.1'
 services:
   app:
     container_name: benchmarks-app
-    image: petk/benchmarks:nginx
+    image: petk/benchmarks:node
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - 80:80
     volumes:
-      - ../../apps/static:/usr/share/nginx/html
+      - .:/usr/src/app
     networks:
       - benchmarks
 

@@ -17,7 +17,8 @@ RUN pecl install swoole \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
-    && mkdir /run/php && chown -R www-data /run/php
+    && mkdir /run/php && chown -R www-data /run/php \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY etc /etc
 

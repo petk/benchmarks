@@ -18,7 +18,8 @@ RUN apt-get update && apt-get -y install curl ca-certificates supervisor --no-in
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
     && mkdir /run/php \
-    && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
+    && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY etc /etc
 COPY usr /usr
