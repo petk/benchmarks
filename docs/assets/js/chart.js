@@ -3,7 +3,7 @@ google.charts.setOnLoadCallback(drawStuff);
 
 function drawStuff() {
     var jsonData = $.ajax({
-            url: "data/results.json",
+            url: "assets/js/results.json",
             dataType: "json",
             async: false
         }).responseText;
