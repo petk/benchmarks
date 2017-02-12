@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Benchmarks
 
 The following setups provide some performance overview of different technologies
@@ -11,6 +15,8 @@ configuration:
 ```bash
 ab -c 100 -n 100000 -k http://localhost/
 ```
+
+<div id="dual_x_div" style="width: 900px; height: 500px;"></div>
 
 ## Disclaimer
 
@@ -27,20 +33,3 @@ another.
 
 Some setups might run into issues on Atom processors due to lacky processor
 support.
-
-## Installation
-
-To run a particular test you need [Docker](https://docs.docker.com/engine/)
-and [Docker Compose](https://docs.docker.com/compose/).
-
-For example, to run Apache test:
-
-```bash
-git clone git://github.com/petk/benchmarks
-cd benchmarks
-./run.sh apache
-```
-
-## License
-
-This repository is released under the [MIT License](LICENSE).

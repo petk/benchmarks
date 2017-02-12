@@ -9,6 +9,7 @@ function drawStuff() {
         ['Nginx FPM Unix Domain Socket', 18512, 5028, 1490, 0, 0],
         ['Nginx Swoole TCP/IP', 18512, 6365, 0, 0, 0],
         ['Nginx Swoole Unix Domain Socket', 18512, 11172, 4753, 0, 0],
+        ['Nginx PHP-PM', 0, 0, 1463, 0, 0],
         ['OpenLiteSpeed', 36377, 16494, 0, 0, 0],
         ['OpenLiteSpeed Swoole', 36377, 23544, 0, 0, 0],
         ['Swoole', 0, 39669, 0, 0, 0],
