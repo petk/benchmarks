@@ -18,15 +18,12 @@ function drawStuff() {
             subtitle: 'Webservers and applications performance benchmarks'
         },
         bars: 'horizontal', // Required for Material Bar Charts.
-        series: {
-            0: { axis: 'first' }, // Bind series 0 to an axis.
-            1: { axis: 'second' } // Bind series 1 to an axis.
+        hAxis: {
+            title: 'Requests per second',
+            minValue: 0,
         },
-        axes: {
-            x: {
-                first: {label: 'requests per second'}, // Bottom x-axis.
-                second: {side: 'top', label: 'requests per second'} // Top x-axis.
-            }
+        vAxis: {
+            title: 'Stack'
         }
     };
 
