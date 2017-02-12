@@ -58,14 +58,14 @@ eval $(parse_yaml config.yml)
 function run() {
     sum=0
     for ((i=1; i<=$benchmarks; i++)); do
-        docker-compose -f servers/$1/docker-compose.yml -f servers/$1/docker-compose.$2.yml up -d --force-recreate
+        docker-compose -f stacks/$1/docker-compose.yml -f stacks/$1/docker-compose.$2.yml up -d --force-recreate
         echo "Benchmarking..."
         sleep $sleep
 
         ab -c $concurency -n $requests -k http://localhost/ > results/$1-$2_$i.txt
         rqs=$(grep -o -P '(?<=Requests per second:    ).*(?= \[)' results/$1-$2_$i.txt)
 
-        docker-compose -f servers/$1/docker-compose.yml -f servers/$1/docker-compose.$2.yml down
+        docker-compose -f stacks/$1/docker-compose.yml -f stacks/$1/docker-compose.$2.yml down
         sum=$(echo "$sum + $rqs" | bc)
     done
     average=$(echo "$sum / $benchmarks" | bc)
@@ -81,11 +81,11 @@ if [ $# -gt 0 ];then
         # Pull Docker images
         for i in "${stacks[@]}"
         do
-            docker-compose -f servers/$i/docker-compose.yml pull
+            docker-compose -f stacks/$i/docker-compose.yml pull
         done
 
         # Install Express node.js
-        docker-compose -f servers/node/docker-compose.yml run --rm app npm install
+        docker-compose -f stacks/node/docker-compose.yml run --rm app npm install
 
         # Install Symfony
         cd apps/symfony

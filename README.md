@@ -28,8 +28,8 @@ git clone git://github.com/petk/benchmarks
 cd benchmarks
 # Pull Docker images and install applications
 ./run.sh init
-# Run benchmarking tests
-./run.sh apache
+# Run benchmarking tests, for example Apache stack with static HTML file
+./run.sh apache html
 ```
 
 ## Contributing and License
