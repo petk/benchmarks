@@ -4,3 +4,5 @@
 !/results
 /results/*
 !results/.gitkeep
+/servers/node/npm-debug.log
+/servers/node/node_modules
