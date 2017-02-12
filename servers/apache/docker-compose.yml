@@ -9,8 +9,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 80:80
-    volumes:
-      - ../../apps/static:/usr/local/apache2/htdocs
     networks:
       - benchmarks
 

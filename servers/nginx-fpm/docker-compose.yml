@@ -9,8 +9,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 80:80
-    volumes:
-      - ../../apps/php-app/:/var/www/html
     networks:
       - benchmarks
 

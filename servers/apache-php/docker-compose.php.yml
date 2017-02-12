@@ -1,0 +1,6 @@
+version: '3.1'
+
+services:
+  app:
+    volumes:
+      - ../../apps/php:/var/www/html

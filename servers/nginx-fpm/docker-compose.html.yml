@@ -1,0 +1,7 @@
+version: '3.1'
+
+services:
+  app:
+    volumes:
+      - ../../apps/html/:/var/www/html
+      - ./etc/nginx/sites-available/html.conf:/etc/nginx/sites-available/default

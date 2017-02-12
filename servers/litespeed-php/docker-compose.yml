@@ -7,8 +7,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ../../apps/php-app:/usr/local/lsws/Example/html
     ports:
       - 7080:7080
       - 80:8088
