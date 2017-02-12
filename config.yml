@@ -13,4 +13,4 @@ requests: 100000
 sleep: 5
 
 # Results data file
-results: 'results/data.json'
+data: 'results/data.txt'

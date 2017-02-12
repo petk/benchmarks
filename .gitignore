@@ -4,5 +4,6 @@
 !/results
 /results/*
 !results/.gitkeep
+!results/template.json
 /stacks/node/npm-debug.log
 /stacks/node/node_modules

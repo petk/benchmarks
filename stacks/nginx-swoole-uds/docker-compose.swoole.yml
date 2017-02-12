@@ -3,5 +3,5 @@ version: '3.1'
 services:
   app:
     volumes:
-      - ../../apps/swoole-app/:/var/www/html
+      - ../../apps/swoole/:/var/www/html
       - ./etc/nginx/sites-available/swoole.conf:/etc/nginx/sites-available/default

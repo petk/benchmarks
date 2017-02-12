@@ -21,12 +21,14 @@ Commands:
     nginx-swoole      Run Nginx with Swoole (TCP/IP) benchmark
     nginx-swoole-uds  Run Nginx with Swoole (Unix Domain Socket) benchmark
     node              Run Node.js and Express benchmark Hello world benchmark
+    data              Create JSON data file for GH pages chart
 Applications:
     html              Static HTML file
     php               Hello world PHP application
     symfony           Symfony application
     laravel           Laravel application
     swoole            Hello world PHP Swoole application
+    express           Node.js Express application
 END
 }
 
@@ -62,14 +64,14 @@ function run() {
         echo "Benchmarking..."
         sleep $sleep
 
-        ab -c $concurency -n $requests -k http://localhost/ > results/$1-$2_$i.txt
-        rqs=$(grep -o -P '(?<=Requests per second:    ).*(?= \[)' results/$1-$2_$i.txt)
+        ab -c $concurency -n $requests -k http://localhost/ > results/$1_$2_$i.txt
+        rqs=$(grep -o -P '(?<=Requests per second:    ).*(?= \[)' results/$1_$2_$i.txt)
 
         docker-compose -f stacks/$1/docker-compose.yml -f stacks/$1/docker-compose.$2.yml down
         sum=$(echo "$sum + $rqs" | bc)
     done
     average=$(echo "$sum / $benchmarks" | bc)
-    echo $1" "$2" "$average >> $results
+    echo $1"_"$2":"$average >> $data
 }
 
 # If arguments are passed, for example ./run.sh nginx
@@ -100,6 +102,14 @@ if [ $# -gt 0 ];then
     elif [[ "${stacks[@]}" =~ "$1" ]]; then
         run $1 $2
 
+    elif [ "$1" == "data" ]; then
+        cp results/template.json docs/assets/js/results.json
+        while read -r line
+        do
+            IFS=':' read key rqs <<< "$line"
+            key="__"$key"__"
+            sed -i "s/$key/$rqs/g" docs/assets/js/results.json
+        done < "results/data.txt"
     else
         usage
     fi

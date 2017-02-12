@@ -6,8 +6,9 @@ function drawStuff() {
             url: "assets/js/results.json",
             dataType: "json",
             async: false
-        }).responseText;
-    var data = new google.visualization.arrayToDataTable(jsonData);
+    }).responseText;
+
+    var data = new google.visualization.DataTable(jsonData);
 
     var options = {
         width: 950,

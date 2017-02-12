@@ -9,8 +9,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 127.0.0.1:80:9501
-    volumes:
-      - ../../apps/swoole-app:/var/www/html
     command: php /var/www/html/index.php
     networks:
       - benchmarks

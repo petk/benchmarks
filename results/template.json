@@ -10,16 +10,16 @@
   "rows": [
     {"c":[
       {"v":"Apache","f":null},
-      {"v":20369,"f":null},
-      {"v":14205,"f":null},
+      {"v":__apache_html__,"f":null},
+      {"v":__apache-php_php__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
     ]},
     {"c":[
       {"v":"Nginx FPM TCP/IP","f":null},
-      {"v":18205,"f":null},
-      {"v":3863,"f":null},
+      {"v":__nginx_html__,"f":null},
+      {"v":__nginx-fpm_php__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
@@ -27,15 +27,15 @@
     {"c":[
       {"v":"Nginx FPM Unix Domain Socket","f":null},
       {"v":0,"f":null},
-      {"v":4440,"f":null},
-      {"v":273,"f":null},
+      {"v":__nginx-fpm-uds_php__,"f":null},
+      {"v":__nginx-fpm-uds_symfony__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
     ]},
     {"c":[
       {"v":"Nginx Swoole TCP/IP","f":null},
       {"v":0,"f":null},
-      {"v":6282,"f":null},
+      {"v":__nginx-swoole_swoole__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
@@ -43,8 +43,8 @@
     {"c":[
       {"v":"Nginx Swoole Unix Domain Socket","f":null},
       {"v":0,"f":null},
-      {"v":9688,"f":null},
-      {"v":3811,"f":null},
+      {"v":__nginx-swoole-uds_swoole__,"f":null},
+      {"v":__nginx-swoole-uds_symfony__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
     ]},
@@ -52,14 +52,14 @@
       {"v":"Nginx PHP-PM","f":null},
       {"v":0,"f":null},
       {"v":0,"f":null},
-      {"v":1248,"f":null},
+      {"v":__php-pm_symfony__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
     ]},
     {"c":[
       {"v":"OpenLiteSpeed","f":null},
-      {"v":34284,"f":null},
-      {"v":14929,"f":null},
+      {"v":__litespeed_html__,"f":null},
+      {"v":__litespeed-php_php__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
@@ -67,7 +67,7 @@
     {"c":[
       {"v":"OpenLiteSpeed Swoole","f":null},
       {"v":0,"f":null},
-      {"v":19387,"f":null},
+      {"v":__litespeed-swoole_swoole__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
@@ -75,7 +75,7 @@
     {"c":[
       {"v":"Swoole","f":null},
       {"v":0,"f":null},
-      {"v":40312,"f":null},
+      {"v":__swoole_swoole__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
@@ -83,7 +83,7 @@
     {"c":[
       {"v":"Node.js Express","f":null},
       {"v":0,"f":null},
-      {"v":5418,"f":null},
+      {"v":__node_express__,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null},
       {"v":0,"f":null}
