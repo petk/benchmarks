@@ -2,22 +2,16 @@ google.charts.load('current', {'packages':['bar']});
 google.charts.setOnLoadCallback(drawStuff);
 
 function drawStuff() {
-    var data = new google.visualization.arrayToDataTable([
-        ['Setup', 'HTML', 'Hello world', 'Symfony', 'Laravel', 'Magento 1'],
-        ['Apache', 20269, 14000, 0, 0, 0],
-        ['Nginx FPM TCP/IP', 18512, 3686, 0, 0, 0],
-        ['Nginx FPM Unix Domain Socket', 18512, 5028, 1490, 0, 0],
-        ['Nginx Swoole TCP/IP', 18512, 6365, 0, 0, 0],
-        ['Nginx Swoole Unix Domain Socket', 18512, 11172, 4753, 0, 0],
-        ['Nginx PHP-PM', 0, 0, 1463, 0, 0],
-        ['OpenLiteSpeed', 36377, 16494, 0, 0, 0],
-        ['OpenLiteSpeed Swoole', 36377, 23544, 0, 0, 0],
-        ['Swoole', 0, 39669, 0, 0, 0],
-        ['Node.js Express', 0, 6271, 0, 0, 0]
-    ]);
+    var jsonData = $.ajax({
+            url: "data/results.json",
+            dataType: "json",
+            async: false
+        }).responseText;
+    var data = new google.visualization.arrayToDataTable(jsonData);
 
     var options = {
-        width: 800,
+        width: 950,
+        backgroundColor: 'transparent',
         chart: {
             title: 'Performance Benchmarks',
             subtitle: 'Webservers and applications performance benchmarks'
