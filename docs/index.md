@@ -16,7 +16,7 @@ configuration:
 ab -c 100 -n 100000 -k http://localhost/
 ```
 
-<div id="dual_x_div" style="width: 900px; height: 700px;"></div>
+<div id="benchmark-chart"></div>
 
 ## Disclaimer
 

@@ -1,7 +1,7 @@
-google.charts.load('current', {'packages':['bar']});
-google.charts.setOnLoadCallback(drawStuff);
+google.charts.load('current', {'packages':['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawChart);
 
-function drawStuff() {
+function drawChart() {
     var jsonData = $.ajax({
             url: "assets/js/results.json",
             dataType: "json",
@@ -11,22 +11,33 @@ function drawStuff() {
     var data = new google.visualization.DataTable(jsonData);
 
     var options = {
-        width: 950,
-        backgroundColor: 'transparent',
+        height: 600,
         chart: {
-            title: 'Performance Benchmarks',
-            subtitle: 'Webservers and applications performance benchmarks'
+            title: 'Webservers and applications performance benchmarks'
         },
-        bars: 'horizontal', // Required for Material Bar Charts.
+        bars: 'horizontal',
         hAxis: {
             title: 'Requests per second',
-            minValue: 0,
+            minValue: 0
         },
         vAxis: {
             title: 'Stack'
+        },
+        series: {
+          0: {axis: 'rqs'},
+          1: {axis: 'rqs'},
+          2: {axis: 'rqs'},
+          3: {axis: 'rqs'},
+          4: {axis: 'rqs'},
+          5: {axis: 'rqs'}
+        },
+        axes: {
+          x: {
+            rqs: {label: 'Requests per second'}
+          }
         }
     };
 
-    var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
+    var chart = new google.charts.Bar(document.getElementById('benchmark-chart'));
     chart.draw(data, options);
 };
