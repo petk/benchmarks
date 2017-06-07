@@ -7,6 +7,8 @@ layout: default
 The following setups provide some performance overview of different technologies
 for web developers.
 
+<div id="benchmark-chart"></div>
+
 ## Apache Benchmark Tool
 
 For measuring performance the Apache Benchmark tool is used with the following
@@ -16,7 +18,13 @@ configuration:
 ab -c 100 -n 100000 -k http://localhost/
 ```
 
-<div id="benchmark-chart"></div>
+## Servers
+
+### Nginx
+
+Nginx can pass PHP scripts to PHP-FPM via the TCP/IP socket or the Unix Domain
+sockets. If you're running Nginx and PHP-FPM on the same machine the Unix Domain
+sockets will perform better compared to TCP/IP.
 
 ## Disclaimer
 
