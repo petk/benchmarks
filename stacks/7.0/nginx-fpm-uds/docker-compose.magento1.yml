@@ -1,0 +1,7 @@
+version: '3.2'
+
+services:
+  app:
+    volumes:
+      - ../../../apps/magento1/:/var/www/html
+      - ./etc/nginx/sites-available/magento1.conf:/etc/nginx/sites-available/default

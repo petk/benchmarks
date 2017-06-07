@@ -1,6 +1,3 @@
-FROM php:7.1-cli
+FROM petk/php
 
-MAINTAINER Peter Kokot
-
-RUN pecl install swoole \
-    && echo 'extension=swoole.so' >> /usr/local/etc/php/php.ini
+RUN install-php-ext swoole

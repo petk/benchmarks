@@ -1,9 +1,17 @@
+# Magento 1
 !/apps/magento1
 /apps/magento1/*
 !apps/magento1/.gitkeep
+
+# Magento 2
+/apps/magento2
+
+# Benchmarking results
 !/results
 /results/*
 !results/.gitkeep
 !results/template.json
+
+# Node.js
 /stacks/node/npm-debug.log
 /stacks/node/node_modules

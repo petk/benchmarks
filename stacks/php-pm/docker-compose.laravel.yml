@@ -1,0 +1,7 @@
+version: '3.2'
+
+services:
+  app:
+    volumes:
+      - ../../apps/laravel/:/var/www/html
+      - ./etc/nginx/sites-available/laravel.conf:/etc/nginx/sites-available/default

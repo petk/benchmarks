@@ -1,6 +1,4 @@
-FROM phpearth/php:litespeed
-
-MAINTAINER Peter Kokot
+FROM petk/php:litespeed-slim
 
 COPY usr/local/lsws/conf/httpd_config.conf /usr/local/lsws/conf/httpd_config.conf
 COPY usr/local/lsws/conf/vhosts /usr/local/lsws/conf/vhosts

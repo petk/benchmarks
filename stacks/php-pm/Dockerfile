@@ -1,7 +1,5 @@
 FROM debian:jessie-slim
 
-MAINTAINER Peter Kokot
-
 RUN apt-get update && apt-get -y install curl wget ca-certificates supervisor apt-transport-https lsb-release git --no-install-recommends \
     && echo 'deb http://ftp.debian.org/debian jessie-backports main' >> /etc/apt/sources.list \
     # dotdeb

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+exec 2>&1
+source /env
+
+exec php /var/www/symfony/web/swoole.php
