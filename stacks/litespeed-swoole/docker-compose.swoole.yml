@@ -4,3 +4,5 @@ services:
   app:
     volumes:
       - ../../apps/swoole:/usr/local/lsws/Example/html
+    ports:
+      - 9501:9501

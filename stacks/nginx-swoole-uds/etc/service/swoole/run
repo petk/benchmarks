@@ -3,4 +3,10 @@
 exec 2>&1
 source /env
 
-exec php /var/www/symfony/web/swoole.php
+if [ ${APP} == "symfony" ]; then
+  SCRIPT="/var/www/symfony/vendor/bin/swoole --env=prod --no-debug"
+else
+  SCRIPT="/var/www/html/index.php"
+fi
+
+exec $SCRIPT

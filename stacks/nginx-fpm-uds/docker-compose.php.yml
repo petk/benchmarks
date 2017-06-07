@@ -4,4 +4,4 @@ services:
   app:
     volumes:
       - ../../apps/php/:/var/www/html
-      - ./etc/nginx/sites-available/php.conf:/etc/nginx/sites-available/default
+      - ./etc/nginx/sites-available/php.conf:/etc/nginx/conf.d/default.conf
