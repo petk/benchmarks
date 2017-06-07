@@ -9,6 +9,8 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Added
 
+* Node.js benchmark
+* GitHub pages for rendering the results
 * ...
 
 ## [1.0.0] - 2017-01-21
