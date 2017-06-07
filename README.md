@@ -5,16 +5,16 @@ for web developers. Benchmarks are run with help of Docker.
 
 ## Included Setups
 
-* [Apache 2.4](https://httpd.apache.org/)
-* [Nginx 1.10.3](http://nginx.org/)
-* [OpenLiteSpeed 1.4.24](http://open.litespeedtech.com/)
-* [Swoole 1.9.5](http://swoole.com/)
+* [Apache](https://httpd.apache.org/)
+* [Nginx](http://nginx.org/)
+* [OpenLiteSpeed](http://open.litespeedtech.com/)
+* [Swoole](http://swoole.com/)
 * [PHP-PM](https://github.com/php-pm/php-pm)
 * [Express](http://expressjs.com/)
 
 ## Results
 
-Results are located on a separate rendered [GitHub Page](https://petk.github.io/benchmarks/).
+Results are displayed on [GitHub Page](https://petk.github.io/benchmarks/).
 
 ## Installation
 
