@@ -1,6 +1,6 @@
 {
     "name": "benchmarks/symfony",
-    "license": "MIT",
+    "license": "proprietary",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -14,20 +14,24 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+        ]
     },
     "require": {
         "php": ">=5.5.9",
-        "symfony/symfony": "3.2.*",
-        "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
-        "doctrine/doctrine-cache-bundle": "^1.2",
-        "symfony/swiftmailer-bundle": "^2.3",
-        "symfony/monolog-bundle": "^3.0",
-        "symfony/polyfill-apcu": "^1.0",
-        "sensio/distribution-bundle": "^5.0",
+        "doctrine/orm": "^2.5",
+        "incenteev/composer-parameter-handler": "^2.0",
+        "php-earth/swoole-engine": "^0.0.1",
+        "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
-        "incenteev/composer-parameter-handler": "^2.0"
+        "symfony/monolog-bundle": "^3.1.0",
+        "symfony/polyfill-apcu": "^1.0",
+        "symfony/swiftmailer-bundle": "^2.3.10",
+        "symfony/symfony": "3.3.*",
+        "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -48,6 +52,9 @@
         "post-update-cmd": [
             "@symfony-scripts"
         ]
+    },
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "symfony-app-dir": "app",
