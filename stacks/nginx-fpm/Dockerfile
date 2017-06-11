@@ -1,4 +1,4 @@
-FROM petk/php:nginx
+FROM phpearth/php:nginx
 
 COPY etc /etc
 COPY usr /usr

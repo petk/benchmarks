@@ -1,4 +1,4 @@
-FROM petk/php:litespeed
+FROM phpearth/php:litespeed
 
 COPY . /
 
