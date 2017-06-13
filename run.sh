@@ -9,26 +9,7 @@ Custom helper commands for managing the benchmarks
 Usage: run.sh COMMAND APP [arg...]
 Commands:
     init              Install applications
-    apache            Run Apache static file benchmark
-    apache-php        Run Apache with PHP-CGI benchmark
-    nginx             Run Nginx static file benchmark
-    nginx-fpm         Run Nginx with PHP-FPM (TCP/IP Socket) benchmark
-    nginx-fpm-uds     Run Nginx with PHP-FPM (Unix Domain Socket) benchmark
-    litespeed         Run OpenLiteSpeed static file benchmark
-    litespeed-php     Run OpenLiteSpeed with LSAPI benchmark
-    litespeed-swoole  Run OpenLiteSpeed with Swoole (TCP/IP) benchmark
-    swoole            Run Swoole benchmark
-    nginx-swoole      Run Nginx with Swoole (TCP/IP) benchmark
-    nginx-swoole-uds  Run Nginx with Swoole (Unix Domain Socket) benchmark
-    node              Run Node.js and Express benchmark Hello world benchmark
     data              Create JSON data file for GH pages chart
-Applications:
-    html              Static HTML file
-    php               Hello world PHP application
-    symfony           Symfony application
-    laravel           Laravel application
-    swoole            Hello world PHP Swoole application
-    express           Node.js Express application
 END
 }
 
@@ -89,17 +70,17 @@ if [ $# -gt 0 ];then
         # Install Express node.js
         docker-compose -f stacks/node/docker-compose.yml run --rm app npm install
 
-        # Install Symfony
-        cd apps/symfony
-        composer install
-        composer dump-autoload --optimize
-
-        # Install Laravel
-        cd ../laravel
-        composer install
-        composer dump-autoload --optimize
+        # Instal Magento 2
+        cd ../magento2
+        git clone git://github.com/magento/magento2 .
+        git checkout tags/2.1.4
+        composer install --ignore-platform-reqs
 
     elif [[ "${stacks[@]}" =~ "$1" ]]; then
+        if [ "$1" == "nginx-fpm" ]; then
+            # Get number of processors
+            processors=$(grep ^processor /proc/cpuinfo | wc -l)
+        fi
         run $1 $2
 
     elif [ "$1" == "data" ]; then

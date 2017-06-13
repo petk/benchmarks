@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+  app:
+    ports:
+      - 8083:8083
+    volumes:
+      - ../../apps/php/:/var/www/app
+      - ./etc/nginx/sites-available/php.conf:/etc/nginx/conf.d/default.conf
+      - ./usr/local/etc/php-fpm.d/www.conf-tcp:/usr/local/etc/php-fpm.d/www.conf

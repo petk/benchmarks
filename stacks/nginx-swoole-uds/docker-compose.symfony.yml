@@ -1,9 +1,0 @@
-version: '3.2'
-
-services:
-  app:
-    environment:
-      - APP=symfony
-    volumes:
-      - ../../apps/symfony/:/var/www/symfony
-      - ./etc/nginx/sites-available/symfony.conf:/etc/nginx/conf.d/default.conf

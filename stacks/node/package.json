@@ -5,7 +5,7 @@
   "author": "Peter Kokot <peterkoko@gmail.com>",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node node-server.js"
   },
   "dependencies": {
     "express": "^4.14.1"

@@ -1,0 +1,11 @@
+version: '3.2'
+
+services:
+  app:
+    environment:
+      - APP=php-swoole
+    volumes:
+      - ../../apps/swoole:/usr/local/lsws/swoole
+    ports:
+      - 9501:9501
+      - 8083:8083

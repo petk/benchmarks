@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 127.0.0.1:80:9501
-    command: php /var/www/html/index.php
+    command: php /var/www/app/index.php
     networks:
       - benchmarks
 

@@ -1,0 +1,9 @@
+version: '3.2'
+
+services:
+  app:
+    ports:
+      - 8084:8084
+    volumes:
+      - ../../apps/symfony/:/var/www/app
+      - ./etc/nginx/sites-available/symfony-uds.conf:/etc/nginx/conf.d/default.conf

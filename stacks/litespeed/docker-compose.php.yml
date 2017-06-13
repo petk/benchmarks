@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+  app:
+    volumes:
+      - ../../apps/php:/usr/local/lsws/php
+    ports:
+      - 8082:8082

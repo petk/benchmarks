@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+  app:
+    environment:
+      - APP=symfony-swoole
+    volumes:
+      - ../../apps/symfony:/usr/local/lsws/symfony-swoole
+    ports:
+      - 8085:8085

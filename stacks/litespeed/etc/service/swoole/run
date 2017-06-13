@@ -1,0 +1,12 @@
+#!/bin/sh
+
+exec 2>&1
+source /env
+
+if [ ${APP} == "symfony-swoole" ]; then
+  SCRIPT="/usr/local/lsws/symfony-swoole/vendor/bin/swoole --env=prod --no-debug"
+  exec $SCRIPT
+elif [ ${APP} == "php-swoole" ]; then
+  SCRIPT="/usr/local/lsws/swoole/index.php"
+  exec $SCRIPT
+fi

@@ -1,3 +1,6 @@
-FROM nginx:stable
+FROM phpearth/php:7.1-nginx
 
-COPY etc /etc
+RUN install-php-ext swoole \
+    && sed -ri 's/^www-data:x:82:82:/www-data:x:1000:50:/' /etc/passwd
+
+COPY . /

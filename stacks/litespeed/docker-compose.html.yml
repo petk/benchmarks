@@ -3,4 +3,6 @@ version: '3.2'
 services:
   app:
     volumes:
-      - ../../apps/html:/usr/local/lsws/Example/html
+      - ../../apps/html:/usr/local/lsws/html
+    ports:
+      - 8081:8081

@@ -1,8 +1,0 @@
-version: '3.2'
-
-services:
-  app:
-    environment:
-      - APP=symfony
-    volumes:
-      - ../../apps/symfony:/usr/local/lsws/symfony

@@ -1,7 +1,7 @@
-FROM phpearth/php:litespeed-slim
+FROM phpearth/php:7.1-litespeed
 
-COPY usr/local/lsws/conf/httpd_config.conf /usr/local/lsws/conf/httpd_config.conf
-COPY usr/local/lsws/conf/vhosts /usr/local/lsws/conf/vhosts
+RUN install-php-ext swoole
 
-RUN chown lsadm:lsadm /usr/local/lsws/conf/httpd_config.conf \
-    && chown -R lsadm:lsadm /usr/local/lsws/conf
+COPY . /
+
+RUN chown -R lsadm:lsadm /usr/local/lsws/conf

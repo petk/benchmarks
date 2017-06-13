@@ -3,7 +3,7 @@ version: '3.2'
 services:
   app:
     container_name: benchmarks-app
-    image: petk/benchmarks:litespeed
+    image: petk/benchmarks:litespeed-swoole
     build:
       context: .
       dockerfile: Dockerfile
