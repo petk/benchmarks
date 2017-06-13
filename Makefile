@@ -47,7 +47,7 @@ apache: ## Apache HTML Benchmark
 	$(call bench,apache-html.txt)
 
 apache-php: ## Apache PHP Benchmark
-	docker-compose -f stacks/apache-php/docker-compose.yml -f stacks/apache-php/docker-compose.php.yml up -d --force-recreate --build
+	docker-compose -f stacks/apache/docker-compose.yml -f stacks/apache/docker-compose.php.yml up -d --force-recreate --build
 	$(SLEEP)
 	$(call bench,apache-php.txt)
 

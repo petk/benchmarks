@@ -3,4 +3,4 @@ version: '3.2'
 services:
   app:
     volumes:
-      - ../../apps/html:/usr/local/apache2/htdocs
+      - ../../apps/html:/var/www/localhost/htdocs
