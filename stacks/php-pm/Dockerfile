@@ -1,8 +1,6 @@
 FROM phpearth/php:7.1-cgi
 
-RUN install-composer -p \
-    && apk add --no-cache git \
-    && install-php-ext pcntl \
+RUN apk add --no-cache composer git php7.1-pcntl \
     && mkdir -p /opt \
     && cd /opt \
     && git clone https://github.com/php-pm/php-pm.git \

@@ -1,5 +1,5 @@
 FROM phpearth/php
 
-RUN install-php-ext swoole
+RUN apk add --no-cache php7.1-swoole
 
 COPY . /
